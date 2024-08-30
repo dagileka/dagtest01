@@ -1,12 +1,24 @@
 on:
-    push:
-      branches:
-        - development
+  push:
+    branches:
+    - development
   
 jobs:
+
   web-deploy:
+
     name: Deploy Website Every Commit
     runs-on: ubuntu-latest
+
     steps:
+
     - name: Get Latest Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
+
+    - name: Sync Files
+      uses: SamKirkland/web-deploy@v1
+      with:
+        target-server: backstory.ie
+        remote-user: backstor
+        private-ssh-key: ${{ secrets.A2_GH }}
+        destination-path: /home/backstory/staging.aiclasses.ie/
