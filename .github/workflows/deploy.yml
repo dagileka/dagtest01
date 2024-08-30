@@ -3,10 +3,10 @@ on:
       branches:
         - development
   
-  jobs:
-    web-deploy:
-      name: Deploy Website Every Commit
-      runs-on: ubuntu-latest
-      steps:
-      - name: Get Latest Code
-        uses: actions/checkout@v4
+jobs:
+  web-deploy:
+    name: Deploy Website Every Commit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Latest Code
+      uses: actions/checkout@v4
